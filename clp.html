@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PT100 no CLIC02 CLW-02/12HR-D 3RD</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1b2430;--mut:#5b6675;--bd:#d9dee5;--c1:#0b6bcb;--c2:#d9480f;--c3:#2b8a3e;--c4:#7048e8;--warn:#fff4e0;--warnb:#f0a53a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--card:#1b222b;--tx:#e7ebf0;--mut:#9aa6b5;--bd:#2f3a47;--c1:#4dabf7;--c2:#ff922b;--c3:#69db7c;--c4:#b197fc;--warn:#2b2315;--warnb:#a8741f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12161c;--card:#1b222b;--tx:#e7ebf0;--mut:#9aa6b5;--bd:#2f3a47;--c1:#4dabf7;--c2:#ff922b;--c3:#69db7c;--c4:#b197fc;--warn:#2b2315;--warnb:#a8741f;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+main{max-width:980px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:clamp(1.4rem,4vw,2rem);margin:0 0 4px}
+.sub{color:var(--mut);margin:0 0 20px}
+h2{font-size:1.15rem;margin:28px 0 10px}
+.map{width:100%;height:auto;background:var(--card);border:1px solid var(--bd);border-radius:14px}
+.map text{fill:var(--tx);font-family:inherit;font-size:13px}
+.map .t{font-weight:700;font-size:14px}
+.map .m{fill:var(--mut);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-top:5px solid var(--c1);border-radius:12px;padding:14px 16px}
+.card.b{border-top-color:var(--c2)}.card.c{border-top-color:var(--c3)}.card.d{border-top-color:var(--c4)}
+.card h3{margin:0 0 6px;font-size:1rem}
+.card ul{margin:6px 0 0;padding-left:18px}
+.card li{margin:3px 0}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:1px 8px;border-radius:99px;border:1px solid var(--bd);color:var(--mut)}
+.warn{background:var(--warn);border:1px solid var(--warnb);border-radius:12px;padding:12px 16px;margin:16px 0}
+.wire{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:8px;overflow-x:auto}
+.wire svg{min-width:640px;width:100%;height:auto}
+.wire text{fill:var(--tx);font-family:inherit;font-size:12px}
+.wire .m{fill:var(--mut);font-size:11px}
+.box{fill:var(--card);stroke:var(--tx);stroke-width:1.5}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:8px}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:10px 12px 10px 48px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:12px;top:9px;width:26px;height:26px;border-radius:50%;background:var(--c1);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.85rem}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--bd);border-radius:10px;overflow:hidden;font-size:.92rem}
+th,td{padding:8px 10px;border-bottom:1px solid var(--bd);text-align:left}
+th{background:var(--bg)}
+.sc{overflow-x:auto}
+footer{color:var(--mut);font-size:.8rem;margin-top:28px}
+</style>
+</head>
+<body>
+<main>
+<h1>🌡️ Ligando um PT100 no CLIC02</h1>
+<p class="sub">WEG CLW-02/12HR-D 3RD · mapa mental, ligação e passo a passo</p>
+
+<svg class="map" viewBox="0 0 760 440" role="img" aria-label="Mapa mental: PT100 no CLIC02">
+ <g stroke-width="2.5" fill="none">
+  <path d="M380 220 L150 80" stroke="#d9480f"/><path d="M380 220 L610 80" stroke="#0b6bcb"/>
+  <path d="M380 220 L150 360" stroke="#2b8a3e"/><path d="M380 220 L610 360" stroke="#7048e8"/>
+  <path d="M380 220 L380 52" stroke="#888"/><path d="M380 220 L380 390" stroke="#888"/>
+ </g>
+ <ellipse cx="380" cy="220" rx="105" ry="46" fill="#0b6bcb"/>
+ <text x="380" y="215" text-anchor="middle" class="t" style="fill:#fff">PT100 + CLIC02</text>
+ <text x="380" y="234" text-anchor="middle" style="fill:#fff">CLW-02/12HR-D 3RD</text>
+
+ <rect x="20" y="40" width="260" height="80" rx="12" class="box" stroke="#d9480f"/>
+ <text x="35" y="64" class="t">⚠️ O problema</text>
+ <text x="35" y="84" class="m">12HR-D não tem entrada PT100.</text>
+ <text x="35" y="102" class="m">Só 0–10 V (I7 e I8), 12 bits.</text>
+
+ <rect x="480" y="40" width="260" height="80" rx="12" class="box" stroke="#0b6bcb"/>
+ <text x="495" y="64" class="t">🅰️ Módulo CLW-02 4PT-3RD</text>
+ <text x="495" y="84" class="m">4 entradas PT100, 12 bits.</text>
+ <text x="495" y="102" class="m">Encaixa na lateral do CLP.</text>
+
+ <rect x="20" y="320" width="260" height="80" rx="12" class="box" stroke="#2b8a3e"/>
+ <text x="35" y="344" class="t">🅱️ Transmissor PT100 → 0–10 V</text>
+ <text x="35" y="364" class="m">Ex.: 0–100 °C = 0–10 V.</text>
+ <text x="35" y="382" class="m">Saída em I7 ou I8.</text>
+
+ <rect x="480" y="320" width="260" height="80" rx="12" class="box" stroke="#7048e8"/>
+ <text x="495" y="344" class="t">💻 Programa (LDmicro / Clic02)</text>
+ <text x="495" y="364" class="m">Bloco analógico + escala</text>
+ <text x="495" y="382" class="m">para °C → saída de controle.</text>
+
+ <rect x="270" y="14" width="220" height="38" rx="10" class="box" stroke="#888"/>
+ <text x="380" y="38" text-anchor="middle" class="t">🔌 Alimentação 24 Vcc</text>
+ <rect x="270" y="388" width="220" height="38" rx="10" class="box" stroke="#888"/>
+ <text x="380" y="412" text-anchor="middle" class="t">🧰 Cabo blindado 3 fios</text>
+</svg>
+
+<h2>Qual caminho escolher?</h2>
+<div class="grid">
+ <div class="card"><span class="tag">OPÇÃO A</span><h3>Módulo de expansão 4PT-3RD</h3>
+  <ul><li>Liga o PT100 direto, sem transmissor</li><li>Mais preciso e limpo</li><li>Até 4 sensores</li><li>Custo maior</li></ul></div>
+ <div class="card b"><span class="tag">OPÇÃO B</span><h3>Transmissor externo</h3>
+  <ul><li>Barato e fácil de achar</li><li>Usa as entradas I7/I8 do próprio CLP</li><li>Máx. 2 sensores</li><li>Precisa configurar a faixa (°C)</li></ul></div>
+</div>
+
+<h2>Esquema de ligação (opção B)</h2>
+<div class="wire">
+<svg viewBox="0 0 700 270" role="img" aria-label="Esquema de ligação PT100 transmissor CLP">
+ <rect x="15" y="60" width="120" height="110" rx="10" class="box"/>
+ <text x="75" y="85" text-anchor="middle" font-weight="700">PT100</text>
+ <text x="75" y="102" text-anchor="middle" class="m">3 fios</text>
+ <circle cx="135" cy="115" r="4" fill="#d33"/><circle cx="135" cy="135" r="4" fill="#d33"/><circle cx="135" cy="155" r="4" fill="#999"/>
+ <text x="75" y="122" text-anchor="middle" class="m">verm. / verm.</text>
+ <text x="75" y="160" text-anchor="middle" class="m">branco</text>
+
+ <rect x="275" y="40" width="150" height="170" rx="10" class="box"/>
+ <text x="350" y="64" text-anchor="middle" font-weight="700">Transmissor</text>
+ <text x="350" y="80" text-anchor="middle" class="m">PT100 → 0–10 V</text>
+ <circle cx="275" cy="115" r="4" fill="#d33"/><circle cx="275" cy="135" r="4" fill="#d33"/><circle cx="275" cy="155" r="4" fill="#999"/>
+ <text x="285" y="119" class="m">RTD+</text><text x="285" y="139" class="m">RTD+</text><text x="285" y="159" class="m">RTD−</text>
+ <circle cx="425" cy="115" r="4" fill="#0b6bcb"/><circle cx="425" cy="145" r="4" fill="#333"/>
+ <text x="380" y="119" class="m">Vout+</text><text x="383" y="149" class="m">Vout−</text>
+ <circle cx="350" cy="40" r="4" fill="#d9480f"/><circle cx="350" cy="210" r="4" fill="#333"/>
+ <text x="358" y="56" class="m">+24 V</text><text x="358" y="204" class="m">0 V</text>
+
+ <rect x="545" y="40" width="140" height="190" rx="10" class="box"/>
+ <text x="615" y="64" text-anchor="middle" font-weight="700">CLW-02/12HR-D</text>
+ <circle cx="545" cy="115" r="4" fill="#0b6bcb"/><circle cx="545" cy="145" r="4" fill="#333"/>
+ <text x="555" y="119" class="m">I7 (ou I8)</text><text x="555" y="149" class="m">0 V</text>
+ <circle cx="615" cy="40" r="4" fill="#d9480f"/><circle cx="615" cy="230" r="4" fill="#333"/>
+ <text x="623" y="56" class="m">+24 V</text><text x="623" y="224" class="m">0 V</text>
+
+ <g fill="none" stroke-width="2">
+  <path d="M135 115H275" stroke="#d33"/><path d="M135 135H275" stroke="#d33"/><path d="M135 155H275" stroke="#999"/>
+  <path d="M425 115H545" stroke="#0b6bcb"/><path d="M425 145H545" stroke="#555"/>
+  <path d="M350 40V14H615V40" stroke="#d9480f"/><path d="M350 210V250H615V230" stroke="#555"/>
+ </g>
+ <text x="480" y="10" text-anchor="middle" class="m">Fonte 24 Vcc (+)</text>
+ <text x="480" y="264" text-anchor="middle" class="m">Fonte 24 Vcc (0 V comum)</text>
+</svg>
+</div>
+<p class="sub" style="margin-top:8px">Os nomes dos bornes do transmissor variam por fabricante: siga o manual dele. Esquema ilustrativo.</p>
+
+<h2>Passo a passo</h2>
+<ol class="steps">
+ <li><b>Desenergize tudo</b> antes de mexer na fiação.</li>
+ <li><b>Escolha a faixa</b> do transmissor (ex.: 0–100 °C → 0–10 V) conforme seu processo.</li>
+ <li><b>Ligue o PT100</b> ao transmissor com 3 fios (dois do mesmo lado + um do outro) para compensar a resistência do cabo.</li>
+ <li><b>Alimente transmissor e CLP</b> com 24 Vcc (CLP aceita 20,4 a 28,8 Vcc) e una os 0 V.</li>
+ <li><b>Saída 0–10 V</b> do transmissor vai em <b>I7 ou I8</b> e o negativo no 0 V do CLP.</li>
+ <li><b>No programa</b>, use um bloco analógico (comparador/amplificador) para converter a tensão em °C e acionar um relé (Q1–Q4).</li>
+ <li><b>Teste</b> com um resistor padrão ou simulador de PT100 antes de ligar ao processo.</li>
+</ol>
+
+<h2>Tabela PT100 (referência)</h2>
+<div class="sc"><table>
+<tr><th>Temperatura</th><th>Resistência</th><th>Com transmissor 0–100 °C → 0–10 V</th></tr>
+<tr><td>0 °C</td><td>100,0 Ω</td><td>0 V</td></tr>
+<tr><td>25 °C</td><td>109,7 Ω</td><td>2,5 V</td></tr>
+<tr><td>50 °C</td><td>119,4 Ω</td><td>5,0 V</td></tr>
+<tr><td>100 °C</td><td>138,5 Ω</td><td>10 V</td></tr>
+</table></div>
+
+<h2>Boas práticas</h2>
+<div class="grid">
+ <div class="card c"><h3>Cabeamento</h3><ul><li>Cabo blindado e trançado</li><li>Malha aterrada em uma ponta só</li><li>Longe de cabos de potência e inversores</li></ul></div>
+ <div class="card d"><h3>Precisão</h3><ul><li>3 fios com mesma bitola e comprimento</li><li>Sinal analógico: manter curto (poucos metros)</li><li>Calibre no ponto de trabalho</li></ul></div>
+</div>
+<div class="warn"><b>Atenção:</b> o CLW-02/12HR-D 3RD <b>não aceita PT100 direto</b> nas entradas I7/I8, pois elas são de 0–10 V. Ligar o sensor sem transmissor ou módulo 4PT-3RD dá leitura errada e não funciona.</div>
+
+<footer>Dados conferidos no catálogo e manual WEG CLIC02. Confirme sempre no manual do seu modelo e do transmissor antes de energizar.</footer>
+</main>
+</body>
+</html>
